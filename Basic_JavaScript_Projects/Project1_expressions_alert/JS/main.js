@@ -3,7 +3,7 @@ document.write("Hello, world!<br>");
 
 // Set string variable and create an alert
 var x = "This is a string.";
-window.alert(x);
+// window.alert(x);
 
 // Backslash (\) to allow quotation mark in string
 document.write('Here\'s a string with an apostrophe.<br>');
@@ -12,9 +12,7 @@ document.write('Here\'s a string with an apostrophe.<br>');
 var a = "This is "
 var b = "a concatenated string.<br>";
 
-document.write(a+b)
-
-document.write(c);
+document.write(a+b);
 
 //Multiple variables declared in one statement
 var color = "blue", shape = "square", animal = "dog";
@@ -27,4 +25,11 @@ var animal = animal.fontcolor("orange");
 document.write(animal + "<br>");
 
 //Variable with an expression
-document.write(2+2)
+document.write(2+2);
+
+//Change <p> color
+function changeColor() {
+    var text = "This text is blue.";
+    var text = text.fontcolor("blue");
+    document.getElementById("colorChange").innerHTML = text;
+};

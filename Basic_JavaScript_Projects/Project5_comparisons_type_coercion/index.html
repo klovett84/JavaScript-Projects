@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Comparisons Type Coercion</title>
+    </head>
+    <body>
+        <p id="type" onclick="typeOf()">
+            A sentence is a type of:
+        </p>
+
+        <p id="coercion" onclick="coerce()">
+            Twenty + 10 = ?
+        </p>
+
+        <p id="zero" onclick="zeroNaN()">
+            0 / 0 = ?
+        </p>
+
+        <p id="dog" onclick="dogNaN()">
+            Is "dog" not a number?
+        </p>
+
+        <p id="num" onclick="numNaN()">
+            Is 42 not a number?
+        </p>
+
+        <p id="infinity" onclick="posInfinity()">
+            2E344 = ?
+        </p>
+
+        <p id="neg-infinity" onclick="negInfinity()">
+            -4E500 = ?
+        </p>
+
+        <p id="greater" onclick="greaterThan()">
+            80 > 7 = ?
+        </p>
+
+        <p id="less" onclick="lessThan()">
+            19 < 12 = ?
+        </p>
+
+        <p id="equalT" onclick="equalTrue()">
+            Is 6 == 6?
+        </p>
+
+        <p id="equalF" onclick="equalFalse()">
+            Is 6 == 4?
+        </p>
+
+        <p id="3equalT" onclick="tripleEqualTrue()">
+            Is 3 === 3?
+        </p>
+
+        <p id="3equalF" onclick="tripleEqualFalse()">
+            Is "frog" === 7?
+        </p>
+
+        <p id="3equalFV" onclick="tripleEqualFalseValue()">
+            Is "2" === 2?
+        </p>
+
+        <p id="3equalFD" onclick="tripleEqualFalseData()">
+            Is "bird" === "turtle"?
+        </p>
+
+        <p id="andT" onclick="andTrue()">
+            If 11 = 11 and blue = blue, are both true?
+        </p>
+
+        <p id="andF" onclick="andFalse()">
+            If 11 = 11 and blue = red, are both true?
+        </p>
+        
+        <p id="orT" onclick="orTrue()">
+            Is either 12 = 16 or 45 = 45 true?
+        </p>
+
+        <p id="orF" onclick="orFalse()">
+            Is either square = triangle or 10 < 9 true?
+        </p>
+
+        <p id="notT" onclick="notTrue()">
+            Is 22 not greater than 67?
+        </p>
+
+        <p id="notF" onclick="notFalse()">
+            Is 70 not 70?
+        </p>
+        
+        <script src="./js/main.js"></script>
+    </body>
+</html>

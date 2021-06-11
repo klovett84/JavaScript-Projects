@@ -55,14 +55,14 @@ function placeXOrO(squareNumber) {
         // This condition allows the while loop to keep trying if a square is selected already
         while(!success) {
             // A random number between 0 and 8 is selected
-            pickASquare = string(Math.floor(Math.random() * 9));
+            pickASquare = String(Math.floor(Math.random() * 9));
             // If the random number evaluated returns true, the square hasn't been selected yet
             if (placeXOrO(pickASquare)) {
                 // This line calls the function
                 placeXOrO(pickASquare);
                 // This changes our boolean and ends the loop
                 success = true;
-            }
+            };
         }
     }
 }
@@ -89,21 +89,21 @@ function checkWinConditions() {
     else if (arrayIncludes('6O', '4O', '2O')) { drawWinLine(100, 508, 510, 90) }
     else if (arrayIncludes('0O', '4O', '8O')) { drawWinLine(100, 100, 520, 520) } 
     // This condition checks for tie. If none of the above conditions register and 9 squares are selected, the code executes.
-    else if (selectedSquares.length >= 9) {
+    else if (selectedSquares.length == 9) {
         // This function plays the tie game sound
         audio('./media/tie.mp3');
         // This function sets a .3 second timer before the resetGame is called
-        setTimeout(function () {resetGame(); }, 1000);
+        setTimeout(function () { resetGame(); }, 1000);
     } 
 
     // This function checks if an array includes 3 strings. It is user to check for each win condition
     function arrayIncludes(squareA, squareB, squareC) {
         // These 3 variables will be used to check for 3 in a row
-        const a = selectedSquares.includes(squareA)
-        const b = selectedSquares.includes(squareB)
-        const c = selectedSquares.includes(squareC)
+        const a = selectedSquares.includes(squareA);
+        const b = selectedSquares.includes(squareB);
+        const c = selectedSquares.includes(squareC);
         // If the 3 variables we pass are all included in the array, true is returned and our else if condition executes the drawWinLine function
-        if (a === true && b === true && c=== true) { return true}
+        if (a === true && b === true && c=== true) { return true }
     }
 }
 
@@ -191,7 +191,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
     // This line calls main animation loop
     animateLineDrawing();
     // This line waits 1 second then clears canvas, resets game, and allows clicking again
-    setTimeout(function() {clear(); resetGame();}, 3000);
+    setTimeout(function() { clear(); resetGame(); }, 1000);
 }
 
 // This funtion resets the game in the event of a tie or a win

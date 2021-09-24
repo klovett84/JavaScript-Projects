@@ -163,7 +163,7 @@ function printDictionary() {
   ```
   
 - Booleans:
-  ```javscript
+  ```javascript
   function greaterThan() {
     document.getElementById("greater").innerHTML = "80 > 7 = " + (80 > 7);
   };
@@ -207,9 +207,260 @@ function printDictionary() {
     document.getElementById("notF").innerHTML = "Is 70 not 70?  " + !(70 == 70);
   };
   ```
+  
+### Project 6: Ternary Operators
+- Ternary operator:
+  ```javascript
+   // Ternary operation to determine if old enough to vote
+  function voteFunction() {
+      var age, canVote;
+      age = document.getElementById("age").value;
+      canVote = (age < 18) ? "You are not old enough":"You are old enough";
+      document.getElementById("vote").innerHTML = canVote + " to vote!";
+  ```
+  
+- Objects:
+  ```javascript
+  // Creating and printing a "computer" object
+  function Computer(manufacturer, type, operatingSystem) {
+      this.computer_manufacturer = manufacturer;
+      this.computer_type = type;
+      this.computer_operatingSystem = operatingSystem;
+  }
+
+  var myComputer = new Computer("Dell", "laptop", "Windows 10");
+
+  function printComputer() {
+      document.getElementById("computer-container").innerHTML =
+      "I use a " + myComputer.computer_manufacturer + " " + myComputer.computer_type + " running " + myComputer.computer_operatingSystem;
+  }
+  ```
+
+### Project 7: Scope, Time, Function
+- Global variable:
+  ```javascript
+  var text = "string";
+  function printString1() {
+      document.write("This is a " + text + "<br>");
+  }
+
+  function printString2() {
+      document.write("This is also a " + text + "<br>");
+  }
+
+  printString1();
+  printString2();
+  ```
+  
+- Local variable:
+  ```javascript
+  function printNum1() {
+    var num = 14;
+    document.write(num + 10);
+    console.log(num + 10)
+  }
+
+  function printNum2() {
+      document.write(num + 40);
+      console.log(num + 40);
+  }
+
+  printNum1();
+  printNum2();
+  ```
+  
+- Display time of day:
+  ```javascript
+  function whatTime() {
+    var time = new Date().getHours();
+    console.log(time)
+
+    if (time < 6) {
+        document.getElementById("time").innerHTML = "It's night!";
+    }
+    else if (time < 12) {
+        document.getElementById("time").innerHTML = "It's morning!";
+    }
+    else if (time < 17) {
+        document.getElementById("time").innerHTML = "It's afternoon!";
+    }  
+    else if (time < 20) {
+        document.getElementById("time").innerHTML = "It's evening!";
+    }  
+    else {
+        document.getElementById("time").innerHTML = "It's night!";
+    }
+  }
+  ```
+
+### Project 8: String Methods
+- Concatenate multiple strings into one:
+  ```javascript
+  function concatString() {
+    var part1 = "This is ";
+    var part2 = "a ";
+    var part3 = "concatenated string.";
+    var sentence = part1.concat(part2, part3);
+    document.getElementById("concatenate").innerHTML = sentence;
+  }
+  ```
+  
+- Search for a value within a string, slice it by its number of characters, and print in uppercase:
+  ```javascript
+  function sliceMethod() {
+      var sentence = "Simple Sally sells seashells by the seashore";
+      var sally = sentence.search("Sally");
+      var section = sentence.slice(sally, (sally + "Sally".length));
+      document.getElementById("slice").innerHTML = section.toUpperCase();
+  }
+  ```
+  
+- Convert number to string:
+  ```javascript
+  function toStringMethod() {
+    var num = 32;
+    document.getElementById("numToString").innerHTML = "String: " + num.toString();
+  }
+  ```
+  
+- Format number to specified length:
+  ```javascript
+  function precisionMethod() {
+    var num = 4.73546524542342;
+    document.getElementById("precision").innerHTML = num.toPrecision(4);
+  }
+  ```
+
+- Roung number to fixed decimal place:
+  ```javascript
+  function fixedMethod() {
+    var num = 4.73546524542342;
+    document.getElementById("fixed").innerHTML = num.toFixed(2);
+  }
+  ```
+
+- Return primitive value:
+  ```javascript
+  function valueOfMethod() {
+    var food = "Soup";
+    document.getElementById("valueResult").innerHTML = food.valueOf();
+  }
+  ```
+  
+### Project 9: Countdown Slideshow
+- Image slideshow:
+  ```javascript
+  var slideIndex = 1;
+  showSlides(slideIndex);
+
+  // Next/previous controls
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  // Thumbnail image controls
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("slides");
+    var dots = document.getElementsByClassName("dot");
+
+    if (n > slides.length) {
+        slideIndex = 1
+    }
+
+    if (n < 1) {
+        slideIndex = slides.length
+    }
+
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+  }
+  ```
+  
+- Countdown timer:
+  ```javascript
+  function countdown() {
+    var seconds = document.getElementById("seconds").value;
+
+    function tick() {
+        seconds = seconds - 1;
+        timer.innerHTML - seconds;
+        setTimeout(tick, 1000);
+
+        if(seconds == -1) {
+            alert("Time's up!")
+        }
+    }
+    tick();
+  }
+  ```
+
+### Project 10: Loops Arrays
+- While loop:
+  ```javascript
+  function counter() {
+    var digit = "";
+    var count = 0;
+    while (count < 16) {
+        digit += count + "<br>";
+        count++;
+    }
+    document.getElementById("loop").innerHTML = digit;
+  }
+  ```
+  
+- For loop:
+  ```javascript
+  var instruments = ["guitar", "drums", "piano", "bass", "violin", "trumpet", "flute"]
+  var content = "";
+  var y;
+  function forLoop() {
+    for (y = 0; y < instruments.length; y++) {
+        content += instruments[y] + "<br>"
+    }
+    document.getElementById("instrumentList").innerHTML = content;
+  }
+  ```
+  
+- Array:
+  ```javascript
+  function cats() {
+    var catArray = [];
+    catArray[0] = "sleeping";
+    catArray[1] = "playing";
+    catArray[2] = "eating";
+    catArray[3] = "purring";
+    document.getElementById("cat").innerHTML = "The cat is " + catArray[2] + ".";
+  }
+  ```
+  
+- For loop with break and continue:
+  ```javascript
+  function cats() {
+    var catArray = [];
+    catArray[0] = "sleeping";
+    catArray[1] = "playing";
+    catArray[2] = "eating";
+    catArray[3] = "purring";
+    document.getElementById("cat").innerHTML = "The cat is " + catArray[2] + ".";
+  }
+  ```
 
 ## Calculator
 This is a calculator with basic add/subtract/multiply/divide functionality.
+
+![calc](https://user-images.githubusercontent.com/84836870/134739987-175ff415-1f61-4e7c-8f28-0fa98623be39.gif)
+
 
 ## Pizza Project
 This is a mock order page for a pizza restaurant. The user can select a pizza size and toppings and the subtotal is displayed.

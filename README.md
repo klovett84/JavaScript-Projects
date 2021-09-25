@@ -459,14 +459,84 @@ function printDictionary() {
 ## Calculator
 This is a calculator with basic add/subtract/multiply/divide functionality.
 
-![calc](https://user-images.githubusercontent.com/84836870/134739987-175ff415-1f61-4e7c-8f28-0fa98623be39.gif)
+![calc](https://user-images.githubusercontent.com/84836870/134747691-6dd25a1a-d0b4-4d6a-9d8b-abe490b9d6fa.gif)
+
+```javascript
+const Perform_Calculation = {
+  '/': (First_Operand, Second_Operand) => First_Operand / Second_Operand,
+  '*': (First_Operand, Second_Operand) => First_Operand * Second_Operand,
+  '+': (First_Operand, Second_Operand) => First_Operand + Second_Operand,
+  '-': (First_Operand, Second_Operand) => First_Operand - Second_Operand,
+  '=': (First_Operand, Second_Operand) => Second_Operand
+};
+```
 
 
 ## Pizza Project
 This is a mock order page for a pizza restaurant. The user can select a pizza size and toppings and the subtotal is displayed.
 
+![pizza](https://user-images.githubusercontent.com/84836870/134756447-7263ace0-1c6a-406f-acfa-a05127c05360.gif)
+
+```javascript
+var toppingTotal = 0;
+  var selectedTopping = [];
+  var toppingArray = document.getElementsByClassName("toppings");
+  for (var j = 0; j < toppingArray.length; j++) {
+      if (toppingArray[j].checked) {
+          selectedTopping.push(toppingArray[j].value);
+          console.log("selected topping item: ("+toppingArray[j].value+")");
+          text1 = text1+toppingArray[j].value+"<br>";
+      }
+  }
+  var toppingCount = selectedTopping.length;
+  if (toppingCount > 1) {
+      toppingTotal = (toppingCount - 1);
+  } else {
+      toppingTotal = 0;
+  }
+  runningTotal = (runningTotal + toppingTotal);
+```
+
 ## Tic Tac Toe
 This is a tic tac toe game played against the computer.
 
+![tictactoe](https://user-images.githubusercontent.com/84836870/134756564-30c5f41b-70ea-4f84-94c6-3619debffae4.gif)
+
+```javascript
+function computersTurn() {
+    // This boolean is needed for the while looop
+    let success = false;
+    // This variable stores a random number 0-8
+    let pickASquare;
+    // This condition allows the while loop to keep trying if a square is selected already
+    while(!success) {
+        // A random number between 0 and 8 is selected
+        pickASquare = String(Math.floor(Math.random() * 9));
+        // If the random number evaluated returns true, the square hasn't been selected yet
+        if (placeXOrO(pickASquare)) {
+            // This line calls the function
+            placeXOrO(pickASquare);
+            // This changes our boolean and ends the loop
+            success = true;
+        };
+    }
+}
+```
+
+
 ## jQuery
-This project demonstrates jQuery basics.
+This project demonstrates a few basic jQuery functions.
+
+```javascript
+// When paragraph 1 is double clicked, fade out
+$("#1").dblclick(function() {
+    $('#1').fadeOut();
+});
+// Make paragraph 2 red
+$("#2").css({"color":"red"})
+
+// Hide header when paragraph 3 is clicked
+$("#3").click(function() {
+    $('h1').hide();
+});
+```
